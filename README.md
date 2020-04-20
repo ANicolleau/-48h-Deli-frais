@@ -16,3 +16,65 @@ Nous allons mettre en place dans un premier temps un site internet qui permettra
 Ce panier leur sera ensuite livré à la date prévue par les livreurs que nous sous-traitons.
 Ceux-ci ont l’obligation de suivre les consignes d’hygiène mise en place par l’État.
 Notre projet s’installe dans un contexte spécial, mais son utilité ne s’arrêtera pas avec la fin du confinement, notre système de livraison et de diminution des contacts actuellement nécessaire, peut être également un renouement avec des personnes à motricités réduites. 
+
+## Fonctionnalités majeures
+### Visualisation des producteurs de ma région et leurs produits
+Possibilité de lister tous les producteurs de ma région ou de restreindre la liste avec une recherche et/ou un filtre :
+
+Possibilité de passer des filtres comme :
+- la proximité du producteur (par rapport à notre adresse)
+- la catégorie de producteur (sous forme de boutons radios car une seule catégorie par producteur)
+
+Possibilité de faire une recherche par :
+- nom de producteur
+- catégorie de producteur
+- nom de produit
+- catégorie de produit
+
+### Connexion/Inscription des utilisateurs et des producteurs
+#### Inscription
+Les utilisateurs peuvent s'inscrire à notre site web en confiant les informations suivantes : 
+- nom
+- prenom
+- email
+- numéro de téléphone
+- adresse
+
+Une vérification de l'adresse entrée est effectué. Il faut vérifier que les adresses existent et n'aient pas de fautes pour assurer la livraison.
+
+Lors de l'inscription, on peut dire si on est producteur. 
+Si c'est le cas, de nouveaux champs s'offrent à nous :
+- catégorie du producteur (maraîcher, viticulteur, fromager, ...)
+- une description du producteur, son histoire, son procédé, ... ou toute autre information jugée utile
+- l'ajout de produit avec leur nom, catégorie, description et prix
+
+#### Connexion
+Les producteurs et les clients se connectent de la même façon : à l'aide de leur adresse email et de leur mot de passe.
+Il est possible de sécuriser son compte avec une double authentification (validation par téléphone ou clé de sécurité physique)
+
+##### Gestion de l'utilisateur
+Une fois connecté, l'utilisateur a la possibilité de modifier ses informations personnelles. 
+Le producteur a aussi la possibilité de modifier ses produits (ajout, modification, suppression), sa description et sa catégorie.
+
+### Gestion du panier
+Lorsqu'un client sélectionne un produit et clique sur le bouton '_Acheter_', le produit est ajouté au panier.
+Le panier est visible sur la droite de l'écran. On peut modifier les quantités de chaque produit du panier via des boutons '+' et '-'.
+Lorsqu'une quantité arrive à '0', le produit est supprimé du panier.
+Le prix du panier est calculé par rapport au prix total des produits, plus les frais de livraisons (distance de l'adresse au producteur), plus une marge de bénéfice pour l'entreprise.
+
+### Paiement et envoie des données à notre sous-traitant
+En validant notre panier, nous avons un résumé de notre commande, un formulaire pour entrer nos coordonnées bancaires (ou notre paypal) et un bouton pour payer.
+Lorsque le paiement est validé, 3 notifications sont envoyées aux différents acteurs de Déli'Frais :
+- Une validation de la commande pour le client
+- Le panier du client est envoyé au fournisseur pour qu'il prépare la commande (peut être envoyé à plusieurs producteurs selon la commande)
+- Le panier du client ainsi que les informations (adresses, numéros de téléphone et noms) du client et des producteurs à notre sous-traitant pour effectuer la livraison
+
+La durée estimée de livraison devra s'adapter avec les disponibilités de notre sous-traitant.
+Il est possible d'entrer des codes de promotion pour réduire le prix du panier.
+
+### Gestion des favoris
+Un utilisateur peut ajouter un producteur à ses favoris pour facilement le retrouver lors de futurs commandes.
+Ces producteurs sont trouvables dans l'onglet "_Mes favoris_".
+
+### Stratégie de fidélisation
+Lorsqu'un utilisateur n'a pas commandé depuis longtemps ou qu'un de ses producteurs favoris baisse ses prix ou ajoute un nouveau produit, un email est envoyé au client pour le prévenir.
