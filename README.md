@@ -29,6 +29,8 @@ Pour nous assurer de ne pas faire une grossière erreur, nous avons tout de mêm
 
 [Voir la source](https://www.insee.fr/fr/statistiques/3676680?sommaire=3696937#tableau-figure1)
 
+De plus, en ayant une application web responsive (qui s'adapte aux dimensions de l'écran), on peut utiliser notre application partout.
+
 ### Technologies
 Pour le prototype de notre application, nous avons décidé d'utiliser les technologies suivantes :
 - NodeJS, pour développer le back
@@ -39,6 +41,7 @@ Ces technologies ont été choisies pour pouvoir rapidement présenter un protot
 Cependant, dans un contexte de mise en production, nous souhaiterions en utiliser d'autres tels que :
 - PHP, pour développer le back de façon plus 'stricte'
 - nous conserverions le pug pour sa mise en place simple, mais nous le couplerions à un framework CSS tel que Bootstrap pour respecter notre maquette
+    et réaliser une application responsive
 - Nous avons utilisé SQLite car il est rapide de mettre en place notre base de données (juste un fichier). 
     Cependant, dans le cadre d'une réel application web, il sera plus pratique d'utiliser MySQL pour séparer de façon plus 'logique' la base de données du code.
 
@@ -118,6 +121,20 @@ Ces producteurs sont trouvables dans l'onglet "_Mes favoris_".
 ### Stratégie de fidélisation
 Lorsqu'un utilisateur n'a pas commandé depuis longtemps ou qu'un de ses producteurs favoris baisse ses prix ou ajoute un nouveau produit, un email est envoyé au client pour le prévenir.
 
-## Évaluation budgétaire
-
 ## Diagramme de GANTT
+![Diagramme de GANTT](./images/documentation/gantt.png)
+
+Nous souhaitons investir un jour pour se mettre d'accord sur l'ergonomie du site ainsi que son style. 
+Réaliser des maquettes de toutes les pages avec le meilleur design possible.
+
+Une fois d'accord, on se divise les tâches entre le développement front et le développement back. 
+Un membre de l'équipe se réservera un jour pour prévoir le déploiement des serveurs, les autres travailleront en local pendant ce temps.
+En parallèle du développement, nous contacterons divers producteurs de notre région pour leur présenter notre service et les y inviter.
+
+Au bout de 8 jours de développement, on commence les phases de tests pour enchainer sur la SEO (optimisation du référencement).
+Le projet pourrait donc se terminer en 11 jours de travail. 
+
+## Évaluation budgétaire
+![Evaluation budgétaire](./images/documentation/eval_budget.png)
+
+Vous trouverez dans ce répertoire git le fichier excel avec l'évaluation budgétaire (dans `./documents/`)
