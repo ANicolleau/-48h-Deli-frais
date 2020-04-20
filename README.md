@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Problème : Vente des produits alimentaires frais
+Problème : Vente des produits alimentaires frais pendant le confinement
 
 Avec ce confinement les producteurs de produits alimentaires frais (pêcheur, boucher, viticulteur, maraîchers, fromager, etc..) n'ont pas les moyens de vendre leurs produits aux particuliers. 
 
@@ -16,6 +16,45 @@ Nous allons mettre en place dans un premier temps un site internet qui permettra
 Ce panier leur sera ensuite livré à la date prévue par les livreurs que nous sous-traitons.
 Ceux-ci ont l’obligation de suivre les consignes d’hygiène mise en place par l’État.
 Notre projet s’installe dans un contexte spécial, mais son utilité ne s’arrêtera pas avec la fin du confinement, notre système de livraison et de diminution des contacts actuellement nécessaire, peut être également un renouement avec des personnes à motricités réduites. 
+
+## Architecture du projet
+![Architecture de Déli'frais](./images/documentation/architecture.png)
+
+### Choix de l'application Web
+Étant donné le contexte actuel, nous avons préféré nous baser une application Web plutôt qu'une application mobile car les français étant confinés, l'utilisation
+du téléphone portable perd une partie de son intérêt.
+Pour nous assurer de ne pas faire une grossière erreur, nous avons tout de même vérifier le taux de présence d'ordinateurs dans les foyers des français :
+
+![Taux d'équipement d'ordinateur en 2017](./images/documentation/insee-equipement.png)
+
+[Voir la source](https://www.insee.fr/fr/statistiques/3676680?sommaire=3696937#tableau-figure1)
+
+### Technologies
+Pour le prototype de notre application, nous avons décidé d'utiliser les technologies suivantes :
+- NodeJS, pour développer le back
+- Pug, pour les vues
+- SQLite, pour la base de données (utilisé via l'ORM Sequelize)
+
+Ces technologies ont été choisies pour pouvoir rapidement présenter un prototype.
+Cependant, dans un contexte de mise en production, nous souhaiterions en utiliser d'autres tels que :
+- PHP, pour développer le back de façon plus 'stricte'
+- nous conserverions le pug pour sa mise en place simple, mais nous le couplerions à un framework CSS tel que Bootstrap pour respecter notre maquette
+- Nous avons utilisé SQLite car il est rapide de mettre en place notre base de données (juste un fichier). 
+    Cependant, dans le cadre d'une réel application web, il sera plus pratique d'utiliser MySQL pour séparer de façon plus 'logique' la base de données du code.
+
+### Base de données
+![Schéma de la base de données](./images/documentation/database.png)
+
+### API
+TODO: lister les routes ici sous la forme suivante
+
+- `VERBE HTTP` : `/wanted/route/:parameter`
+
+    Body { parameter1, parameter2 }
+    
+    Return { value }
+    
+    Short description
 
 ## Fonctionnalités majeures
 ### Visualisation des producteurs de ma région et leurs produits
@@ -78,3 +117,7 @@ Ces producteurs sont trouvables dans l'onglet "_Mes favoris_".
 
 ### Stratégie de fidélisation
 Lorsqu'un utilisateur n'a pas commandé depuis longtemps ou qu'un de ses producteurs favoris baisse ses prix ou ajoute un nouveau produit, un email est envoyé au client pour le prévenir.
+
+## Évaluation budgétaire
+
+## Diagramme de GANTT
