@@ -1,4 +1,4 @@
-create table Product (
+create table IF NOT EXISTS Product (
     id INTEGER PRIMARY KEY NOT NULL,
     name VARCHAR(100),
     description VARCHAR(255),

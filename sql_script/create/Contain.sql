@@ -1,4 +1,4 @@
-CREATE TABLE Contain (
+CREATE TABLE IF NOT EXISTS Contain (
     id INTEGER PRIMARY KEY NOT NULL,
     basket_id INTEGER,
     product_id INTEGER,

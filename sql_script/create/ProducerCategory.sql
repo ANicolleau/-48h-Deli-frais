@@ -1,4 +1,4 @@
-CREATE TABLE ProducerCategory (
+CREATE TABLE IF NOT EXISTS ProducerCategory (
     id INTEGER PRIMARY KEY NOT NULL,
     label VARCHAR(100)
 )

@@ -1,4 +1,4 @@
-CREATE TABLE User (
+CREATE TABLE IF NOT EXISTS User (
     id INTEGER PRIMARY KEY NOT NULL,
     producer_id INTEGER,
     email VARCHAR(100),
