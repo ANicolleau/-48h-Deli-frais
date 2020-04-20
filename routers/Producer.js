@@ -5,7 +5,7 @@ router.get('/', async(req, res, next)=> {
     const producers = await Producer.findAll();
     res.format({
         html: () => {
-            
+            res.render('resources/producers/producers.pug', producers)
         },
         json: ()=>{
             res.send(producers)
