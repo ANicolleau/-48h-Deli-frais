@@ -1,0 +1,9 @@
+extends ../home.pug
+block script
+
+block content
+    - h1 Utilisateur +' '+  user.name +' '+ user.lastname
+
+    ul
+        each value in user
+            li= value
