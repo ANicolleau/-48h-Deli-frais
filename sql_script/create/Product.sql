@@ -1,5 +1,5 @@
-create table IF NOT EXISTS Product (
-    id INTEGER PRIMARY KEY NOT NULL,
+create table Product (
+    id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
     name VARCHAR(100),
     description VARCHAR(255),
     price INTEGER,

@@ -1,5 +1,5 @@
-create table IF NOT EXISTS Basket (
-    id INTEGER PRIMARY KEY NOT NULL,
+create table Basket (
+    id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
     user_id INTEGER,
     price INTEGER,
     date DATE,
