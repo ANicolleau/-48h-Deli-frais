@@ -8,13 +8,26 @@ CREATE TABLE ProductCategory (
     id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
     label VARCHAR(100)
 );
-create table Producer (
+CREATE TABLE User (
+    id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    email VARCHAR(100),
+    firstname VARCHAR(50),
+    lastname VARCHAR(50),
+    password VARCHAR(50),
+    city VARCHAR(50),
+    zip_code INTEGER,
+    street VARCHAR(255),
+    phone_number VARCHAR(14)
+);
+CREATE TABLE Producer (
     id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
     description VARCHAR(255),
     category_id INTEGER,
-    FOREIGN KEY(category_id) REFERENCES ProducerCategory(id)
+    user_id INTEGER,
+    FOREIGN KEY(category_id) REFERENCES ProducerCategory(id),
+    FOREIGN KEY(user_id) REFERENCES User(id)
 );
-create table Product (
+CREATE TABLE Product (
     id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
     name VARCHAR(100),
     description VARCHAR(255),
@@ -24,20 +37,7 @@ create table Product (
     FOREIGN KEY(category_id) REFERENCES ProductCategory(id),
     FOREIGN KEY(producer_id) REFERENCES Producer(id)
 );
-create table User (
-    id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    producer_id INTEGER,
-    email VARCHAR(100),
-    firstname VARCHAR(50),
-    lastname VARCHAR(50),
-    password VARCHAR(50),
-    city VARCHAR(50),
-    zip_code INTEGER,
-    street VARCHAR(255),
-    phone_number VARCHAR(14),
-    FOREIGN KEY(producer_id) REFERENCES Producer(id)
-);
-create table Basket (
+CREATE TABLE Basket (
     id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
     user_id INTEGER,
     price INTEGER,
