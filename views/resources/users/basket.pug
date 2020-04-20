@@ -1,0 +1,10 @@
+extends ../home.pug
+block script
+
+block content
+    h1 Panier
+
+    basket.price
+    ul
+        each product in basket
+            li= product 

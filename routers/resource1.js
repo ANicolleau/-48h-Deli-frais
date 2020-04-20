@@ -4,8 +4,40 @@ const router = express.Router()
 
 
 //
-// User
+// Users
 //
+
+router.get(`/basket/:id`, async (request, response) => {
+    console.log("Hello")
+
+    response.format({
+        html: () => {
+            response.render('resources/users/basket')
+        },
+        json: () => {
+            response.send({
+                bienvenue: "à toi",
+                jesuis: "la réponse json 1"
+            })
+        }
+    })
+})
+
+router.get(`/users/:id/edit`, async (request, response) => {
+    console.log("Hello")
+
+    response.format({
+        html: () => {
+            response.render('resources/users/edit')
+        },
+        json: () => {
+            response.send({
+                bienvenue: "à toi",
+                jesuis: "la réponse json 1"
+            })
+        }
+    })
+})
 
 router.get(`/users/:id`, async (request, response) => {
     console.log("Hello")
