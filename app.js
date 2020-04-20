@@ -1,8 +1,7 @@
 const express = require('express')
 const router = require('./router')
 const session = require('express-session')
-const sequelize = require('./models/database')
-const User = require('./models/User')
+const { User } = require('./models/database')
 
 const app = express()
 app.use(express.json())
@@ -19,14 +18,18 @@ app.use(session({
         maxAge: 86400000  }
   }))
 
-User.sync({force: true}).then(async () => {
-    const caribou = await User.create({
+/* INSERT EXAMPLE */
+app.get('/createuser', function(req, res, next) {
+    User.create({
         firstname: "Jean",
         lastname: "Bon"
+    }).then((r) => {
+        console.log(r)
     })
-    console.log(caribou)
-    return caribou
 })
+
+
+
 
 // Access the session as req.session
 app.get('/', function(req, res, next) {
