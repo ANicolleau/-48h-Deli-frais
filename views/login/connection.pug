@@ -1,0 +1,17 @@
+extends layout
+
+block content
+    html
+        head
+            title Connexion
+        body
+            h1 Connexion
+
+            form(method='POST' action='/login')
+            div.form-group
+                label(for='email') Courriel:
+                input#email.form-control(type='text', placeholder='votre@courriel.com' name='email')
+            div.form-group
+                label(for='password') Mot de Passe:
+                input#password.form-control(type='password' name='password')
+            button.btn.btn-primary(type='submit') Se connecter
