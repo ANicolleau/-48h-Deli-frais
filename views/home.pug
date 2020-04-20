@@ -1,9 +1,13 @@
 doctype html
+
 html(lang="fr")
-  head
-    title= Des légumes frais chez vous !
-  body
-    h1 Déli'Frais
-    #login
-      a(class='button' href='/register') S'enregistrer
-      a(class='button' href='/connection') Connexion
+    head
+        title Des légumes frais chez vous !
+    body 
+        block content
+            h1 Déli'Frais
+            #login
+            a(class='button' href='/register') S'enregistrer
+            br
+            a(class='button' href='/connection') Connexion
+        block footer
