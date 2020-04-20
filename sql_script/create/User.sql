@@ -1,5 +1,5 @@
-create table User (
-    id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
+CREATE TABLE User (
+    id INTEGER PRIMARY KEY NOT NULL,
     producer_id INTEGER,
     email VARCHAR(100),
     firstname VARCHAR(50),

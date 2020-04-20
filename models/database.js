@@ -1,4 +1,5 @@
 const sqlite3 = require('sqlite3')
+const fs = require('fs')
 const open = require('sqlite').open
 const filename = "./database.db"
 
@@ -7,15 +8,11 @@ module.exports = {
         open({
             filename: filename,
             driver: sqlite3.Database
-          }).then((db) => {
-              db.run(`create table Producer (
-                  id INTEGER PRIMARY KEY AUTOINCREMENT,
-                  products_id INTEGER,
-                  description VARCHAR(255),
-                  category VARCHAR(100)
-              );`)
-          }).then(()=> console.log("database ready !"))
-          .catch(error => console.log(error))
+        }).then(async (db) => {
+            const dataSql = await fs.readFileSync('sql_script/create/User.sql').toString();
+            await db.run(dataSql)
+        }).then(()=> console.log("database ready !"))
+        .catch(error => console.log(error))
           
                   
     }
