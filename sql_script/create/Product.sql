@@ -1,5 +1,5 @@
 create table Product (
-    id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    id INTEGER PRIMARY KEY NOT NULL,
     name VARCHAR(100),
     description VARCHAR(255),
     price INTEGER,

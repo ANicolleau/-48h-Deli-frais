@@ -1,5 +1,5 @@
 create table Basket (
-    id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    id INTEGER PRIMARY KEY NOT NULL,
     user_id INTEGER,
     price INTEGER,
     date DATE,

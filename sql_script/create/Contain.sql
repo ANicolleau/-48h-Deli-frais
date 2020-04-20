@@ -1,5 +1,5 @@
 CREATE TABLE Contain (
-    id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    id INTEGER PRIMARY KEY NOT NULL,
     basket_id INTEGER,
     product_id INTEGER,
     quantity INTEGER,
