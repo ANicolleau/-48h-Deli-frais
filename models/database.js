@@ -1,4 +1,4 @@
-const sqlite3 = require('sqlite3')
+const sqlite = require('sqlite')
 const open = require('sqlite').open
 const filename = "./database.db"
 
@@ -6,7 +6,7 @@ module.exports = {
     createDatabase(){
         open({
             filename: filename,
-            driver: sqlite3.Database
+            driver: sqlite.driver
           }).then((db) => {
               db.run(`create table Producer (
                   id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -15,7 +15,7 @@ module.exports = {
                   category VARCHAR(100)
               );`)
           }).then(()=> console.log("database ready !"))
-          .catch(error => console.log(error))
+          .catch(error => console.log)
           
                   
     }
