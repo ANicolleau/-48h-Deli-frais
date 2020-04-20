@@ -1,6 +1,6 @@
 # Déli'Frais
 
-## Contexte
+## Introduction
 
 Problème : Vente des produits alimentaires frais
 
