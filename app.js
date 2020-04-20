@@ -1,6 +1,7 @@
 const express = require('express')
 const router = require('./router')
 const session = require('express-session')
+const database = require('./models/database')
 
 const app = express()
 app.use(express.json())
@@ -16,6 +17,8 @@ app.use(session({
     cookie: {
         maxAge: 86400000  }
   }))
+
+database.createDatabase()
  
 // Access the session as req.session
 app.get('/', function(req, res, next) {
