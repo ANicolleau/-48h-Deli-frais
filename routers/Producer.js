@@ -35,7 +35,7 @@ router.get('/:id', async (req, res, next) => {
       id: req.params.id
     }
   });
-  console.log(producer)
+
   const user = await User.findAll(
     {
       where: {
@@ -43,7 +43,7 @@ router.get('/:id', async (req, res, next) => {
       }
     }
   )
-  console.log(user)
+
   res.format({
     html: () => {
       res.render('resources/producers/producer.pug', {
@@ -56,8 +56,6 @@ router.get('/:id', async (req, res, next) => {
     }
   })
 })
-
-// ANDEV(LA)
 
 router.post('/', async (req, res, next) => {
   const producer = await Producer.create({

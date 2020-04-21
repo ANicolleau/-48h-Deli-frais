@@ -73,6 +73,16 @@ Possibilité de faire une recherche par :
 - nom de produit
 - catégorie de produit
 
+#### Visualisation des producteurs sur la maquette
+Visualisation d'un producteur et ses produits
+![Visualisation d'un producteur et ses produits](images/maquette/producteur.png)
+
+Visualisation des producteurs
+![Visualisation des producteurs](images/maquette/producteurs.png)
+
+Visualisation des produits
+![Visualisation des produits](images/maquette/produits.png)
+
 ### Connexion/Inscription des utilisateurs et des producteurs
 #### Inscription
 Les utilisateurs peuvent s'inscrire à notre site web en confiant les informations suivantes : 
