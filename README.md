@@ -48,17 +48,6 @@ Cependant, dans un contexte de mise en production, nous souhaiterions en utilise
 ### Base de données
 ![Schéma de la base de données](images/database.png)
 
-### API
-TODO: lister les routes ici sous la forme suivante
-
-- `VERBE HTTP` : `/wanted/route/:parameter`
-
-    Body { parameter1, parameter2 }
-    
-    Return { value }
-    
-    Short description
-
 ## Fonctionnalités majeures
 ### Visualisation des producteurs de ma région et leurs produits
 Possibilité de lister tous les producteurs de ma région ou de restreindre la liste avec une recherche et/ou un filtre :
@@ -72,6 +61,18 @@ Possibilité de faire une recherche par :
 - catégorie de producteur
 - nom de produit
 - catégorie de produit
+
+#### Visualisation des producteurs sur la maquette
+Visualisation d'un producteur et ses produits
+![Visualisation d'un producteur et ses produits](images/maquette/producteur.png)
+
+Visualisation des producteurs
+![Visualisation des producteurs](images/maquette/producteurs.png)
+
+Visualisation des produits
+![Visualisation des produits](images/maquette/produits.png)
+
+Maquette visible [ici](./documents/maquette.pdf)
 
 ### Connexion/Inscription des utilisateurs et des producteurs
 #### Inscription

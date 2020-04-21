@@ -36,7 +36,7 @@ router.get('/:id', async (req, res, next) => {
       id: req.params.id
     }
   });
-  console.log(producer)
+
   const user = await User.findAll(
     {
       where: {
@@ -44,6 +44,7 @@ router.get('/:id', async (req, res, next) => {
       }
     }
   )
+<<<<<<< HEAD
   console.log(user)
   const products = await Product.findAll(
     {
@@ -53,6 +54,9 @@ router.get('/:id', async (req, res, next) => {
     }
   )
   console.log(products)
+=======
+
+>>>>>>> 8ea19c961e6aa2ecea47d15b72c79a27254f9826
   res.format({
     html: () => {
       res.render('resources/producers/producer.pug', {
@@ -66,8 +70,6 @@ router.get('/:id', async (req, res, next) => {
     }
   })
 })
-
-// ANDEV(LA)
 
 router.post('/', async (req, res, next) => {
   const producer = await Producer.create({
