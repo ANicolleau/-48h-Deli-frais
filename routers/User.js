@@ -2,7 +2,6 @@ const router = require('express').Router()
 const { User } = require('../database/database')
 
 router.get('/', async(req, res, next)=> {
-    console.log("rrrrr")
     const users = await User.findAll();
     res.format({
         html: () => {
