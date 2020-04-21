@@ -1,9 +1,13 @@
 extends ../../home.pug
-block script
-
 block content
-    - h1 Producteur +' '+  producer.name +' '+ producer.lastname
+    h1= 'Producteur ' +  user.firstname +' '+ user.lastname
 
     ul
-        each value in producer
-            li= value
+        li= user.email
+        li= user.password
+        li= user.city
+        li= user.zipCode
+        li= user.street
+        li= user.phoneNumber
+        if user.id === producer.userId
+            li= producer.description

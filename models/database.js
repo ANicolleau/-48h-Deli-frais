@@ -11,6 +11,9 @@ const UserModel = require('./User')
 const sequelize = new Sequelize('database', '', '', {
     host: 'localhost',
     dialect: 'sqlite',
+    define: {
+        timestamps: false
+    },
     logging: false,
 
     pool: {
@@ -20,6 +23,7 @@ const sequelize = new Sequelize('database', '', '', {
     },
 
     storage: filename
+
 });
 
 const Basket = BasketModel(Sequelize, sequelize)

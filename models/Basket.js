@@ -11,5 +11,7 @@ module.exports = (Sequelize, sequelize) => {
         price: {
             type: Sequelize.INTEGER
         }
+    }, {
+        freezeTableName: true
     })
 }
