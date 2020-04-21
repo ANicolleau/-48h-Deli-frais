@@ -17,7 +17,7 @@ router.get('/', async (req, res, next) => {
     )
     users.push(user[0])
   }
-
+  console.log(users)
   res.format({
     html: () => {
       res.render('resources/producers/producers.pug', {
@@ -100,9 +100,9 @@ router.patch('/:id', async (req, res, next) => {
   let tmp_producer = {}
 
   if (req.params.description)
-    tmp_producer.description = req.params.description
+    tmp_producer.description = req.body.description
   if (req.params.categoryId)
-    tmp_producer.categoryId = req.params.categoryId
+    tmp_producer.categoryId = req.body.categoryId
 
   const producer_updated = await Producer.update(tmp_producer, {
     where: {

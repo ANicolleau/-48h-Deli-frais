@@ -5,7 +5,7 @@ block content
     ul
         each user in users
             h2
-                a(href=`producers/${user.id}`)= user.firstname + ' ' + user.lastname
+            a(href=`producers/${user.id}`)= user.firstname + ' ' + user.lastname
             li= user.email
             li= user.password
             li= user.city

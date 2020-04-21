@@ -59,7 +59,7 @@ app.get('/select_state', function(req, res, next) {
     })
 })
 
-app.get('/register', function(req, res, next) {
+app.get('/customer_register', function(req, res, next) {
     res.format({
         html: () => {
             res.render("login/customer_register")
