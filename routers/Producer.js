@@ -17,7 +17,7 @@ router.get('/', async (req, res, next) => {
     )
     users.push(user[0])
   }
-  console.log(users)
+
   res.format({
     html: () => {
       res.render('resources/producers/producers.pug', {
