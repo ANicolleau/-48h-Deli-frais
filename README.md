@@ -101,6 +101,9 @@ Si c'est le cas, de nouveaux champs s'offrent à nous :
 Les producteurs et les clients se connectent de la même façon : à l'aide de leur adresse email et de leur mot de passe.
 Il est possible de sécuriser son compte avec une double authentification (validation par téléphone ou clé de sécurité physique)
 
+Les sessions utilisateur sont mises en place dans la branche "session" mais les données de l'utilisateur sont inaccessibles.
+Nous n'avons pas réussit à finaliser la mise en place des sessions avec passport JS, c'est pour cela que les sessions sont mit dans la branche session.
+
 ##### Gestion de l'utilisateur
 Une fois connecté, l'utilisateur a la possibilité de modifier ses informations personnelles. 
 Le producteur a aussi la possibilité de modifier ses produits (ajout, modification, suppression), sa description et sa catégorie.
