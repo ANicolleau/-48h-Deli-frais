@@ -4,8 +4,18 @@ html(lang="fr")
     head
         title Des légumes frais chez vous !
     body 
+        block header
+            h1 
+                a(href='/') Déli'Frais
+            a(class='button' href='/products') Tout nos produits
+            br
+            a(class='button' href='/producers') Nos producteurs
+            br
+            a(class='button' href='/users/1/basket') Votre panier
+            br 
+            br
         block content
-            h1 Déli'Frais
+            
             #login
             a(class='button' href='/register') S'enregistrer
             br
