@@ -2,22 +2,25 @@ doctype html
 
 html(lang="fr")
     head
+        style
+            include ../style/style.css
         title Des légumes frais chez vous !
     body 
+        
         block header
-            h1 
+            h1#title 
                 a(href='/') Déli'Frais
-            a(class='button' href='/products') Tout nos produits
-            br
-            a(class='button' href='/producers') Nos producteurs
-            br
-            a(class='button' href='/users/1/basket') Votre panier
+            a.header3(class='button' href='/products') Tout nos produits
+            
+            a.header3(class='button' href='/producers') Nos producteurs
+            
+            a.header3(class='button' href='/users/1/basket') Votre panier
             br 
             br
         block content
             
             #login
-            a(class='button' href='/select_state') S'enregistrer
-            br
-            a(class='button' href='/connection') Connexion
+            a.header2(class='button' href='/select_state') S'enregistrer
+            
+            a.header2(class='button' href='/connection') Connexion
         block footer

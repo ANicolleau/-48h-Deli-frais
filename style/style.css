@@ -1,0 +1,16 @@
+ul li  {
+    list-style-type: none;
+    margin: 10px;
+  }
+
+.header3 {
+    margin-left: 16%;
+}
+
+.header2 {
+    margin-left: 25%;
+}
+
+#title {
+    text-align: center;
+}
