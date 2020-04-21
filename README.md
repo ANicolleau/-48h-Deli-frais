@@ -73,6 +73,13 @@ Visualisation des produits
 
 Maquette visible [ici](./documents/maquette.pdf)
 
+#### Screenshots
+Visualisation des producteurs
+![Visualisation des producteurs](./images/screens/liste-producteurs.png)
+
+Visualisation des produits
+![Visualisation des produits](./images/screens/liste-produits.png)
+
 ### Connexion/Inscription des utilisateurs et des producteurs
 #### Inscription
 Les utilisateurs peuvent s'inscrire à notre site web en confiant les informations suivantes : 
@@ -98,11 +105,22 @@ Il est possible de sécuriser son compte avec une double authentification (valid
 Une fois connecté, l'utilisateur a la possibilité de modifier ses informations personnelles. 
 Le producteur a aussi la possibilité de modifier ses produits (ajout, modification, suppression), sa description et sa catégorie.
 
+Screenshots:
+
+Visualisation des informations de l'utilisateur
+![Visualisation des informations de l'utilisateur](./images/screens/profil.png)
+
+Modification des informations de l'utilisateur
+![Modification des informations de l'utilisateur](./images/screens/modifier-profil.png)
+
 ### Gestion du panier
 Lorsqu'un client sélectionne un produit et clique sur le bouton '_Acheter_', le produit est ajouté au panier.
 Le panier est visible sur la droite de l'écran. On peut modifier les quantités de chaque produit du panier via des boutons '+' et '-'.
 Lorsqu'une quantité arrive à '0', le produit est supprimé du panier.
 Le prix du panier est calculé par rapport au prix total des produits, plus les frais de livraisons (distance de l'adresse au producteur), plus une marge de bénéfice pour l'entreprise.
+
+Affichage du panier de l'utilisateur
+![Affichage du panier de l'utilisateur](./images/screens/panier.png)
 
 ### Paiement et envoie des données à notre sous-traitant
 En validant notre panier, nous avons un résumé de notre commande, un formulaire pour entrer nos coordonnées bancaires (ou notre paypal) et un bouton pour payer.
