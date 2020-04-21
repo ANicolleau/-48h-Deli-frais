@@ -1,6 +1,7 @@
 const express = require('express')
 const session = require('express-session')
 const { User } = require('./database/database')
+const {ProducerCategory} = require('./database/database')
 const methodOverride =  require('method-override')
 
 const app = express()
@@ -50,10 +51,30 @@ app.get('/connection', function(req, res, next) {
     })
 })
 
+app.get('/select_state', function(req, res, next) {
+    res.format({
+        html: () => {
+            res.render("login/select_state")
+        }
+    })
+})
+
 app.get('/register', function(req, res, next) {
     res.format({
         html: () => {
-            res.render("login/register")
+            res.render("login/customer_register")
+        }
+    })
+})
+
+app.get('/producer_register', async function(req, res, next) {
+    const producer_category = await ProducerCategory.findAll()
+    console.log(producer_category)
+    res.format({
+        html: () => {
+            res.render("login/producer_register", {
+                producer_category: producer_category
+            })
         }
     })
 })

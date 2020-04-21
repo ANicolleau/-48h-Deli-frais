@@ -40,8 +40,7 @@ Pour le prototype de notre application, nous avons décidé d'utiliser les techn
 Ces technologies ont été choisies pour pouvoir rapidement présenter un prototype.
 Cependant, dans un contexte de mise en production, nous souhaiterions en utiliser d'autres tels que :
 - PHP, pour développer le back de façon plus 'stricte'
-- nous conserverions le pug pour sa mise en place simple, mais nous le couplerions à un framework CSS tel que Bootstrap pour respecter notre maquette
-    et réaliser une application responsive
+- un framework CSS tel que Bootstrap pour respecter notre maquette qet réaliser une application responsive
 - Nous avons utilisé SQLite car il est rapide de mettre en place notre base de données (juste un fichier). 
     Cependant, dans le cadre d'une réel application web, il sera plus pratique d'utiliser MySQL pour séparer de façon plus 'logique' la base de données du code.
 

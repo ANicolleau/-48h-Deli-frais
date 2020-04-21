@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const {Producer} = require('../database/database')
 const {User} = require('../database/database')
+const {ProducerCategory} = require('../database/database')
 const {Product} = require('../database/database')
 
 router.get('/', async (req, res, next) => {
@@ -44,8 +45,6 @@ router.get('/:id', async (req, res, next) => {
       }
     }
   )
-<<<<<<< HEAD
-  console.log(user)
   const products = await Product.findAll(
     {
       where: {
@@ -53,10 +52,6 @@ router.get('/:id', async (req, res, next) => {
       }
     }
   )
-  console.log(products)
-=======
-
->>>>>>> 8ea19c961e6aa2ecea47d15b72c79a27254f9826
   res.format({
     html: () => {
       res.render('resources/producers/producer.pug', {
@@ -72,16 +67,31 @@ router.get('/:id', async (req, res, next) => {
 })
 
 router.post('/', async (req, res, next) => {
-  const producer = await Producer.create({
-    description: req.params.description,
-    categoryId: req.params.categoryId,
+  const user = await User.create({
+    email : req.body.email,
+    firstname : req.body.firstname,
+    lastname : req.body.lastname,
+    password : req.body.password,
+    city : req.body.city,
+    zip_code : req.body.zip_code,
+    street : req.body.street,
+    phone_number : req.body.phone_number
   })
+  const user_in_database = await User.findAll({
+    where: {firstname: req.body.firstname, lastname : req.body.lastname}
+  })
+  const producer = await Producer.create({
+    description: req.body.description,
+    categoryId: req.body.category,
+    userId: user_in_database[0].id
+  })
+
   res.format({
     html: () => {
       res.redirect("/")
     },
     json: () => {
-      res.send(producer)
+      res.send(producer, user)
     }
   })
 })
