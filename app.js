@@ -1,6 +1,6 @@
 const express = require('express')
 const session = require('express-session')
-const { User } = require('./models/database')
+const { User } = require('./database/database')
 
 const app = express()
 app.use(express.json())
@@ -16,7 +16,6 @@ app.use(session({
         maxAge: 86400000  }
   }))
 
-console.log("test")
 app.use('/contains', require('./routers/Contain'))
 app.use('/producers', require('./routers/Producer'))
 app.use('/producercategories', require('./routers/ProducerCategory'))
@@ -29,6 +28,13 @@ app.get('/', function(req, res, next) {
     res.send("Hello World")
 })
 
+app.get('/about', function(req, res, next) {
+    res.format({
+        html: () => {
+            res.render("about/about")
+        }
+    })
+})
 
 app.listen(4000, () => {
     console.log('Example app listening on port 4000!')

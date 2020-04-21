@@ -1,6 +1,6 @@
 const router = require('express').Router()
-const {Producer} = require('../models/database')
-const {User} = require('../models/database')
+const {Producer} = require('../database/database')
+const {User} = require('../database/database')
 
 router.get('/', async (req, res, next) => {
   const producers = await Producer.findAll();

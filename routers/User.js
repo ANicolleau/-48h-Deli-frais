@@ -1,11 +1,11 @@
 const router = require('express').Router()
-const { User } = require('../models/database')
+const { User } = require('../database/database')
 
 router.get('/', async(req, res, next)=> {
     const users = await User.findAll();
     res.format({
         html: () => {
-            
+            res.redirect("/")
         },
         json: ()=>{
             res.send(users)
@@ -21,7 +21,9 @@ router.get('/:id', async (req, res, next)=> {
     });
     res.format({
         html: () => {
-
+            res.render("resources/users/user", {
+                user: user[0]
+            })
         },
         json: ()=>{
             res.send(user)
@@ -29,6 +31,23 @@ router.get('/:id', async (req, res, next)=> {
     })
 })
 
+router.get('/:id/edit', async (req, res, next)=> {
+    const user = await User.findAll({
+        where: {
+            id: req.params.id
+        }
+    });
+    res.format({
+        html: () => {
+            res.render("resources/users/edit", {
+                user: user[0]
+            })
+        },
+        json: ()=>{
+            res.send(user)
+        }
+    })
+})
 
 
 router.post('/', async (req, res, next)=> {

@@ -1,8 +1,7 @@
 extends ../../home.pug
-block script
 
 block content
-    - h1 Utilisateur +' '+  user.name +' '+ user.lastname
+    h1= "Utilisateur " +  user.firstname + " " + user.lastname
 
     form(method='PUT', action='/register')
     div.form-group

@@ -1,11 +1,14 @@
 extends ../../home.pug
-block script
 
 block content
-    - h1 Utilisateur +' '+  user.name +' '+ user.lastname
+    h1= "Utilisateur " +  user.firstname + " " + user.lastname
 
     ul
-        each value in user
-            li= value
+        li= user.email
+        li= user.password
+        li= user.city
+        li= user.zipCode
+        li= user.street
+        li= user.phoneNumber
 
-    a(class='button' href=`/users/:user.id/edit`)
+    a(class='button' href=`/users/${user.id}/edit`) Modifier mon profil

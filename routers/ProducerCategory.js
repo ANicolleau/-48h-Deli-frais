@@ -1,11 +1,11 @@
 const router = require('express').Router()
-const { ProducerCategory } = require('../models/database')
+const { ProducerCategory } = require('../database/database')
 
 router.get('/', async(req, res, next)=> {
     const producercategories = await ProducerCategory.findAll();
     res.format({
         html: () => {
-            
+            res.redirect("/")
         },
         json: ()=>{
             res.send(producercategories)
@@ -21,7 +21,7 @@ router.get('/:id', async (req, res, next)=> {
     });
     res.format({
         html: () => {
-
+            res.redirect("/")
         },
         json: ()=>{
             res.send(producerCategory)

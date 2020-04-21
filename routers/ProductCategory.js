@@ -1,11 +1,11 @@
 const router = require('express').Router()
-const { ProductCategory } = require('../models/database')
+const { ProductCategory } = require('../database/database')
 
 router.get('/', async(req, res, next)=> {
     const productCategories = await ProductCategory.findAll();
     res.format({
         html: () => {
-            
+            res.redirect("/")
         },
         json: ()=>{
             res.send(productCategories)
@@ -21,7 +21,7 @@ router.get('/:id', async (req, res, next)=> {
     });
     res.format({
         html: () => {
-
+            res.redirect("/")
         },
         json: ()=>{
             res.send(productCategory)

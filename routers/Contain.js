@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { Contain } = require('../models/database')
+const { Contain } = require('../database/database')
 
 router.get('/', async(req, res, next)=> {
     const contains = await Contain.findAll();

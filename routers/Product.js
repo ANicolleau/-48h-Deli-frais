@@ -1,11 +1,13 @@
 const router = require('express').Router()
-const { Product } = require('../models/database')
+const { Product } = require('../database/database')
 
 router.get('/', async(req, res, next)=> {
     const products = await Product.findAll();
     res.format({
         html: () => {
-            
+            res.render("resources/products/products", {
+                products
+            })
         },
         json: ()=>{
             res.send(products)
@@ -21,7 +23,9 @@ router.get('/:id', async (req, res, next)=> {
     });
     res.format({
         html: () => {
-
+            res.render("resources/products/product", {
+                product: product[0]
+            })
         },
         json: ()=>{
             res.send(product)

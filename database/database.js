@@ -1,12 +1,12 @@
 const filename = "./database.sqlite"
 const Sequelize = require("sequelize")
-const BasketModel = require('./Basket')
-const ContainModel = require('./Contain')
-const ProductModel = require('./Product')
-const ProducerModel = require('./Producer')
-const ProductCategoryModel = require('./ProductCategory')
-const ProducerCategoryModel = require('./ProducerCategory')
-const UserModel = require('./User')
+const BasketModel = require('./models/Basket')
+const ContainModel = require('./models/Contain')
+const ProductModel = require('./models/Product')
+const ProducerModel = require('./models/Producer')
+const ProductCategoryModel = require('./models/ProductCategory')
+const ProducerCategoryModel = require('./models/ProducerCategory')
+const UserModel = require('./models/User')
 
 const sequelize = new Sequelize('database', '', '', {
     host: 'localhost',
@@ -34,7 +34,7 @@ const ProductCategory = ProductCategoryModel(Sequelize, sequelize)
 const ProducerCategory = ProducerCategoryModel(Sequelize, sequelize)
 const User = UserModel(Sequelize, sequelize)
 
-sequelize.sync({ force: true })
+sequelize.sync({ force: false })
     .then(() => {
         console.log(`Database & tables created!`)
     })

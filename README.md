@@ -18,14 +18,14 @@ Ceux-ci ont l’obligation de suivre les consignes d’hygiène mise en place pa
 Notre projet s’installe dans un contexte spécial, mais son utilité ne s’arrêtera pas avec la fin du confinement, notre système de livraison et de diminution des contacts actuellement nécessaire, peut être également un renouement avec des personnes à motricités réduites. 
 
 ## Architecture du projet
-![Architecture de Déli'frais](./images/documentation/architecture.png)
+![Architecture de Déli'frais](images/architecture.png)
 
 ### Choix de l'application Web
 Étant donné le contexte actuel, nous avons préféré nous baser une application Web plutôt qu'une application mobile car les français étant confinés, l'utilisation
 du téléphone portable perd une partie de son intérêt.
 Pour nous assurer de ne pas faire une grossière erreur, nous avons tout de même vérifier le taux de présence d'ordinateurs dans les foyers des français :
 
-![Taux d'équipement d'ordinateur en 2017](./images/documentation/insee-equipement.png)
+![Taux d'équipement d'ordinateur en 2017](images/insee-equipement.png)
 
 [Voir la source](https://www.insee.fr/fr/statistiques/3676680?sommaire=3696937#tableau-figure1)
 
@@ -46,7 +46,7 @@ Cependant, dans un contexte de mise en production, nous souhaiterions en utilise
     Cependant, dans le cadre d'une réel application web, il sera plus pratique d'utiliser MySQL pour séparer de façon plus 'logique' la base de données du code.
 
 ### Base de données
-![Schéma de la base de données](./images/documentation/database.png)
+![Schéma de la base de données](images/database.png)
 
 ### API
 TODO: lister les routes ici sous la forme suivante
@@ -122,7 +122,7 @@ Ces producteurs sont trouvables dans l'onglet "_Mes favoris_".
 Lorsqu'un utilisateur n'a pas commandé depuis longtemps ou qu'un de ses producteurs favoris baisse ses prix ou ajoute un nouveau produit, un email est envoyé au client pour le prévenir.
 
 ## Diagramme de GANTT
-![Diagramme de GANTT](./images/documentation/gantt.png)
+![Diagramme de GANTT](images/gantt.png)
 
 Nous souhaitons investir un jour pour se mettre d'accord sur l'ergonomie du site ainsi que son style. 
 Réaliser des maquettes de toutes les pages avec le meilleur design possible.
@@ -135,6 +135,6 @@ Au bout de 8 jours de développement, on commence les phases de tests pour encha
 Le projet pourrait donc se terminer en 11 jours de travail. 
 
 ## Évaluation budgétaire
-![Evaluation budgétaire](./images/documentation/eval_budget.png)
+![Evaluation budgétaire](images/eval_budget.png)
 
 Vous trouverez dans ce répertoire git le fichier excel avec l'évaluation budgétaire (dans `./documents/`)
