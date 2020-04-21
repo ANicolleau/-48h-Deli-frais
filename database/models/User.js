@@ -4,10 +4,6 @@ module.exports = (Sequelize, sequelize) => {
       type: Sequelize.INTEGER,
       primaryKey: true
     },
-    producerId: {
-      type: Sequelize.INTEGER,
-      field: 'producer_id'
-    },
     email: {
       type: Sequelize.STRING
     },

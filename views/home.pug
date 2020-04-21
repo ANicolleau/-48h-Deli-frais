@@ -3,11 +3,12 @@ doctype html
 html(lang="fr")
     head
         title Des légumes frais chez vous !
-    body 
+    body
+        block scripts
         block content
             h1 Déli'Frais
             #login
-            a(class='button' href='/register') S'enregistrer
+            a(class='button' href='/select_state') S'enregistrer
             br
             a(class='button' href='/connection') Connexion
         block footer
