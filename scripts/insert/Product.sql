@@ -1,9 +1,9 @@
-INSERT INTO Product(name, description, price) VALUES ("Fromage de chèvres", "Prix de la buchette", 2.5);
-INSERT INTO Product(name, description, price) VALUES ("Fromage de brebis", "Prix de la buchette", 3);
-INSERT INTO Product(name, description, price) VALUES ("Fromage de vache", "Prix pour 250 grammes", 7.7);
-INSERT INTO Product(name, description, price) VALUES ("Lait de vache", "Prix de la brique", 1.19);
-INSERT INTO Product(name, description, price) VALUES ("Pomme", "Prix au kg", 4);
-INSERT INTO Product(name, description, price) VALUES ("Poire", "Prix au kg", 3.9);
+INSERT INTO Product(name, description, price, producer_id) VALUES ("Fromage de chèvres", "Prix de la buchette", 2.5, 1);
+INSERT INTO Product(name, description, price, producer_id) VALUES ("Fromage de brebis", "Prix de la buchette", 3, 1);
+INSERT INTO Product(name, description, price, producer_id) VALUES ("Fromage de vache", "Prix pour 250 grammes", 7.7, 1);
+INSERT INTO Product(name, description, price, producer_id) VALUES ("Lait de vache", "Prix de la brique", 1.19, 1);
+INSERT INTO Product(name, description, price, producer_id) VALUES ("Pomme", "Prix au kg", 4, 1);
+INSERT INTO Product(name, description, price, producer_id) VALUES ("Poire", "Prix au kg", 3.9, 1);
 INSERT INTO Product(name, description, price) VALUES ("Orange", "Prix au kg", 3.2);
 INSERT INTO Product(name, description, price) VALUES ("Raisin", "Prix au kg", 7.1);
 INSERT INTO Product(name, description, price) VALUES ("Fraise", "Prix au kg", 9.68);

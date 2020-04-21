@@ -2,6 +2,7 @@ const router = require('express').Router()
 const {Producer} = require('../database/database')
 const {User} = require('../database/database')
 const {ProducerCategory} = require('../database/database')
+const {Product} = require('../database/database')
 
 router.get('/', async (req, res, next) => {
   const producers = await Producer.findAll();
@@ -36,6 +37,7 @@ router.get('/:id', async (req, res, next) => {
       id: req.params.id
     }
   });
+
   const user = await User.findAll(
     {
       where: {
@@ -43,11 +45,19 @@ router.get('/:id', async (req, res, next) => {
       }
     }
   )
+  const products = await Product.findAll(
+    {
+      where: {
+        producer_id: producer[0].id
+      }
+    }
+  )
   res.format({
     html: () => {
       res.render('resources/producers/producer.pug', {
         producer: producer[0],
-        user: user[0]
+        user: user[0],
+        products: products
       })
     },
     json: () => {
@@ -55,8 +65,6 @@ router.get('/:id', async (req, res, next) => {
     }
   })
 })
-
-// ANDEV(LA)
 
 router.post('/', async (req, res, next) => {
   const user = await User.create({

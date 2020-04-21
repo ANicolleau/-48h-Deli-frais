@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { User } = require('../database/database')
+const { User, Contain, Basket, Product } = require('../database/database')
 
 router.get('/', async(req, res, next)=> {
     const users = await User.findAll();
@@ -122,4 +122,103 @@ router.delete('/:id', async (req, res, next)=> {
     })
 })
 
+router.post('/:user_id/buy/:product_id', async (req, res, next)=> {
+    let basket = await Basket.findAll(
+        {
+            where: {
+                user_id: req.params.user_id
+            }
+        }
+    )
+    if (basket.length === 0 ) {
+        await Basket.create(
+            {
+                userId: req.params.user_id,
+                price: 0
+            }
+        )
+        basket = await Basket.findAll(
+            {
+                where: {
+                    user_id: req.params.user_id
+                }
+            }
+        )
+    }
+    basket = basket[0]
+    const contain = await Contain.create(
+        {
+            basketId: basket.id,
+            productId: req.params.product_id,
+            quantity: 1
+        }
+    )
+    const product = await Product.findAll(
+        {
+            where: {
+                id: req.params.product_id
+            }
+        }
+    )
+    await Basket.update(
+        {
+            price: basket.price + product[0].price*contain.quantity
+        },
+        {
+            where: {
+                id: basket.id
+            }
+        }
+    )
+
+    res.format({
+        html: () => {
+            res.redirect(`/users/${req.params.user_id}/basket/`)
+        },
+        json: ()=>{
+            res.send(user)
+        }
+    })
+})
+
+router.get('/:id/basket', async (req, res, next)=> {
+    const user = await User.findAll({
+        where: {
+            id: req.params.id
+        }
+    })
+    const basket = await Basket.findAll({
+        where: {
+            userId: req.params.id
+        }
+    });
+    console.log(basket[0])
+    const contains = await Contain.findAll({
+        where: {
+            basketId: basket[0].id
+        }
+    })
+    let product_ids = []
+    for (let product of contains) {
+        product_ids.push(product.productId)
+    }
+    const products = await Product.findAll({
+        where: { 
+            id: product_ids
+        }
+    })
+    
+    res.format({
+        html: () => {
+            res.render("resources/users/basket", {
+                user: user[0],
+                price: basket[0].price,
+                products: products
+            })
+        },
+        json: ()=>{
+            res.send(user)
+        }
+    })
+})
 module.exports = router

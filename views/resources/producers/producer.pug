@@ -11,3 +11,10 @@ block content
         li= user.phoneNumber
         if user.id === producer.userId
             li= producer.description
+
+    each product in products
+        li
+            a(class='button' href=`/products/${product.id}`)= product.name
+            form(method='POST', action=`/users/${user.id}/buy/${product.id}`)
+                button.btn.btn-primary(type='submit') Acheter ce produit
+            br
