@@ -36,7 +36,7 @@ const User = UserModel(Sequelize, sequelize)
 
 sequelize.sync({ force: false })
     .then(() => {
-        console.log(`Database & tables created!`)
+        console.log(`Database connection: OK`)
     })
 
 module.exports = {
