@@ -33,9 +33,11 @@ INSERT INTO producer(description, category_id, user_id) VALUES ("Notre ferme fru
 INSERT INTO producer(description, category_id, user_id) VALUES ("Notre proposons des concombres, courgettes, pommes de terre.", 3, 10);
 INSERT INTO producer(description, category_id, user_id) VALUES ("Notre vendons des haricots vert, choux fleurs et salades.", 3, 11);
 INSERT INTO producer(description, category_id, user_id) VALUES ("Notre avons des petits pois, des carottes.", 3, 12);
-INSERT INTO product(name, description, price) VALUES ("Fromage de chèvres", "Prix de la buchette", 2.5);
-INSERT INTO product(name, description, price) VALUES ("Fromage de brebis", "Prix de la buchette", 3);
-INSERT INTO product(name, description, price) VALUES ("Fromage de vache", "Prix pour 250 grammes", 7.7);
+INSERT INTO product(name, description, price, producer_id) VALUES ("Fromage de chèvres", "Prix de la buchette", 2.5, 1);
+INSERT INTO product(name, description, price, producer_id) VALUES ("Fromage de brebis", "Prix de la buchette", 3, 1);
+INSERT INTO product(name, description, price, producer_id) VALUES ("Fromage de brebis", "Prix de la buchette", 3, 2);
+INSERT INTO product(name, description, price, producer_id) VALUES ("Fromage de brebis", "Prix de la buchette", 3, 3);
+INSERT INTO product(name, description, price, producer_id) VALUES ("Fromage de vache", "Prix pour 250 grammes", 7.7, 3);
 INSERT INTO product(name, description, price) VALUES ("Lait de vache", "Prix de la brique", 1.19);
 INSERT INTO product(name, description, price) VALUES ("Pomme", "Prix au kg", 4);
 INSERT INTO product(name, description, price) VALUES ("Poire", "Prix au kg", 3.9);
