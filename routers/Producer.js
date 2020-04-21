@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const {Producer} = require('../database/database')
 const {User} = require('../database/database')
+const {Product} = require('../database/database')
 
 router.get('/', async (req, res, next) => {
   const producers = await Producer.findAll();
@@ -44,11 +45,20 @@ router.get('/:id', async (req, res, next) => {
     }
   )
   console.log(user)
+  const products = await Product.findAll(
+    {
+      where: {
+        producer_id: producer[0].id
+      }
+    }
+  )
+  console.log(products)
   res.format({
     html: () => {
       res.render('resources/producers/producer.pug', {
         producer: producer[0],
-        user: user[0]
+        user: user[0],
+        products: products
       })
     },
     json: () => {

@@ -1,10 +1,10 @@
-extends ../../home.pug
-block script
-
+extends ../../home
 block content
-    h1 Panier
+    h1= 'Panier de ' +  user.firstname +' '+ user.lastname
 
-    basket.price
+    p= 'Prix total: '+ price +' €'
     ul
-        each product in basket
-            li= product 
+        each product in products
+            li
+                span= product.name + ' | '+product.price+" €" 
+                
