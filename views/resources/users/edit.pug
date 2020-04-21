@@ -7,35 +7,38 @@ block content
 
         div.form-group
             label(for='firstname') Prénom:
-            input#firstname.form-control(type='text', placeholder='Prénom', name='firstname')
+            input#firstname.form-control(type='text', placeholder='Prénom', name='firstname' value=user.firstname)
         div.form-group
             label(for='lastname') Nom:
-            input#lastname.form-control(type='text', placeholder='Nom', name='lastname')
+            input#lastname.form-control(type='text', placeholder='Nom', name='lastname', value=user.lastname)
         div.form-group
             label(for='email') Courriel:
-            input#email.form-control(type='email', placeholder='votre@courriel.com', name='email')
+            input#email.form-control(type='email', placeholder='votre@courriel.com', name='email', value=user.email)
         div.form-group
             label(for='city') Ville:
-            input#city.form-control(type='text', placeholder='bourg-palette', name='city')
+            input#city.form-control(type='text', placeholder='bourg-palette', name='city', value=user.city)
         div.form-group
             label(for='address') Adresse:
-            input#address.form-control(type='text', placeholder='123 rue de la paix', name='address')
+            input#address.form-control(type='text', placeholder='123 rue de la paix', name='address', value=user.address)
         div.form-group
             label(for='zipcode') Code Postal:
-            input#zipcode.form-control(type='text', placeholder='33000', name='zipcode')
+            input#zipcode.form-control(type='text', placeholder='33000', name='zipcode', value=user.zipCode)
         div.form-group
             label(for='phone_number') Numéro de Téléphone:
-            input#phone_number.form-control(type='text', placeholder='Numéro de téléphone', name='phone_number')
-        if user.producer_id
+            input#phone_number.form-control(type='text', placeholder='Numéro de téléphone', name='phone_number', value=user.phone_number)
+        if producer
             div.form-group
                 label(for='category') Catégorie:
                 input#category.form-control(type='text', placeholder='Maraîcher, Berger, Apiculteur', name='category')
             div.form-group
                 label(for='description') Description:
-                input#description.form-control(type='text', placeholder='Si vous voulez rajouter des précisions', name='description')
+                input#description.form-control(type='text', placeholder='Si vous voulez rajouter des précisions', name='description', value=producer.description)
             div.form-group
                 label(for='products') Produits:
-                input#products.form-control(type='text', placeholder='Votre production', name='products')
+                if products.length === 0
+                    input#products.form-control(type='text', placeholder='Votre production', name='products')
+                each product in products
+                    input#products.form-control(type='text', placeholder='Votre production', name='products', value=product.name)
         div.form-group
             label(for='pw') Mot de passe:
             input#pw.form-control(type='password', name='password')
