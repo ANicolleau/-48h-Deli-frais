@@ -42,6 +42,22 @@ app.get('/about', function(req, res, next) {
     })
 })
 
+app.get('/connection', function(req, res, next) {
+    res.format({
+        html: () => {
+            res.render("login/connection")
+        }
+    })
+})
+
+app.get('/register', function(req, res, next) {
+    res.format({
+        html: () => {
+            res.render("login/register")
+        }
+    })
+})
+
 app.listen(4000, () => {
     console.log('Déli\'Frais app listening on port 4000!')
 })

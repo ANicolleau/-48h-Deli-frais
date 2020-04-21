@@ -2,6 +2,7 @@ const router = require('express').Router()
 const { User } = require('../database/database')
 
 router.get('/', async(req, res, next)=> {
+    console.log("rrrrr")
     const users = await User.findAll();
     res.format({
         html: () => {
@@ -52,14 +53,14 @@ router.get('/:id/edit', async (req, res, next)=> {
 
 router.post('/', async (req, res, next)=> {
     const user = await User.create({    
-        email : req.params.email,
-        firstname : req.params.firstname,
-        lastname : req.params.lastname,
-        password : req.params.password,
-        city : req.params.city,
-        zip_code : req.params.zip_code,
-        street : req.params.street,
-        phone_number : req.params.phone_number,
+        email : req.body.email,
+        firstname : req.body.firstname,
+        lastname : req.body.lastname,
+        password : req.body.password,
+        city : req.body.city,
+        zip_code : req.body.zip_code,
+        street : req.body.street,
+        phone_number : req.body.phone_number,
     })
     res.format({
         html: () => {
