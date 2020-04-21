@@ -2,21 +2,53 @@ const express = require('express')
 const session = require('express-session')
 const { User } = require('./database/database')
 const methodOverride =  require('method-override')
+const passport = require('passport')
+const Strategy = require('passport-local').Strategy;
+const { Op } = require("sequelize");
 
 const app = express()
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
-app.set('view engine', 'pug')
-app.set('trust proxy', 1)
 app.use(methodOverride('_method'))
+app.set('view engine', 'pug');
 
-app.use(session({
-    secret: 'keyboard cat',
+passport.use(new Strategy(
+    async function(username, password, cb) {
+        const user = await User.findAll({
+            where: {
+                [Op.and]: [{ email: username }, { password: password }],
+            }
+        })
+        if(user[0].email == username && user[0].password == password)
+            return cb(null, user[0]);
+        else
+            return cb(null, false, {message: "incorrect"})
+}));
+
+passport.serializeUser(function(user, cb) {
+    cb(null, user.id);
+  });
+  
+passport.deserializeUser( async function(id, cb) {
+    const user = await User.findAll({
+        where: {
+            id: id,
+        }
+    }, function (err, user) {
+    if (err) { return cb(err); }
+    cb(null, user);
+    });
+});
+
+app.use(passport.initialize())
+app.use(passport.session({
+    secret: 'cookie_secret',
+    name: 'cookie_name',
+    proxy: true,
     resave: true,
-    saveUninitialized: false,
-    cookie: {
-        maxAge: 86400000  }
-  }))
+    saveUninitialized: true
+}))
+
 
 app.use('/contains', require('./routers/Contain'))
 app.use('/producers', require('./routers/Producer'))
@@ -24,15 +56,6 @@ app.use('/producercategories', require('./routers/ProducerCategory'))
 app.use('/products', require('./routers/Product'))
 app.use('/productcategories', require('./routers/ProductCategory'))
 app.use('/users', require('./routers/User'))
-
-
-app.get('/', function(req, res, next) {
-    res.format({
-        html: () => {
-            res.render("home")
-        }
-    })
-})
 
 app.get('/about', function(req, res, next) {
     res.format({
@@ -54,6 +77,18 @@ app.get('/register', function(req, res, next) {
     res.format({
         html: () => {
             res.render("login/register")
+        }
+    })
+})
+
+app.post('/login',
+  passport.authenticate('local', { successRedirect: '/', failureRedirect: '/connection' }));
+
+app.get('/', function(req, res, next) {
+    console.log(req.body)
+    res.format({
+        html: () => {
+            res.render("home")
         }
     })
 })
